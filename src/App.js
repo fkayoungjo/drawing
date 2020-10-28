@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Circle = () => {
+    let ref = useRef();
 
-export default App;
+   useEffect(() => {
+        let canvas = ref.current;
+        let context = canvas.getContext('2d');
+        context.beginPath();
+        context.arc(50, 50, 50, 0, 2 * Math.PI);
+        context.fill();
+  });
+
+    return (
+        <canvas
+            ref={ref}
+            style={{ width: '100px', height: '100px' }}
+        />
+    );
+};
+export default Circle;
