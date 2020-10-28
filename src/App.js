@@ -1,23 +1,23 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import React, { useRef, useEffect } from 'react'
+import gsap from 'gsap'
 
-const Circle = () => {
-    let ref = useRef();
+const Animation = () => {
+    const boxRef = useRef()
 
-   useEffect(() => {
-        let canvas = ref.current;
-        let context = canvas.getContext('2d');
-        context.beginPath();
-        context.arc(50, 50, 50, 0, 2 * Math.PI);
-        context.fill();
-  });
+    useEffect(() => {
+        gsap.to([boxRef.current], {
+            x: '400px',
+            duration: 2
+        })
+    })
 
     return (
-        <canvas
-            ref={ref}
-            style={{ width: '100px', height: '100px' }}
-        />
-    );
-};
-export default Circle;
+
+      <div ref={boxRef} style={{
+        width: '160px',
+        height: '160px',
+        background: 'salmon'
+        }} />
+      )
+    }
+      export default Animation;
