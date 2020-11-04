@@ -6,8 +6,8 @@ const Animation = () => {
 
     useEffect(() => {
         gsap.to([boxRef.current], {
-            x: '400px',
-            duration: 8
+            x: '300px',
+            duration: 5
         })
     })
 
